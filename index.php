@@ -16,7 +16,7 @@ session_start();
 <body>
 <nav id="navbar">
   <div class="nav-logo">
-    <img src="" alt="">
+    <img src="assets/logo.png" alt="Elvin Ruiz Santoni Logo">
   </div>
   <ul class="nav-links">
     <li><a href="#iul">¿Qué es IUL?</a></li>
@@ -40,7 +40,7 @@ session_start();
       <p>Soy Elvin Ruiz Santoni, asesor independiente de seguros IUL. Te ayudo a asegurar el futuro financiero de tu familia con estrategias personalizadas, sin riesgos en el mercado.</p>
       <div class="hero-actions">
         <a href="#contacto" class="btn-primary">
-          <span>📅</span> Agenda tu consulta gratis
+          Agenda tu consulta gratis
         </a>
         <a href="#iul" class="btn-secondary">¿Qué es un IUL?</a>
       </div>
@@ -61,7 +61,7 @@ session_start();
     </div>
     <div class="hero-photo">
       <div class="hero-photo-frame">
-        <img src="" alt="">
+        <img src="assets/conocemasdeelvin.png" alt="Elvin Ruiz Santoni">
         <div class="hero-card-badge">
           <div class="hcb-label">Calificación</div>
           <div class="hcb-value">Top Asesor 2024</div>
@@ -120,12 +120,12 @@ session_start();
       <div class="about-img-wrap reveal">
         <div class="about-gold-accent"></div>
         <div class="about-gold-accent-br"></div>
-        <img src="" alt="">
+        <img src="assets/hero-photo.png" alt="Conoce mas de elvin ruiz santoni">
       </div>
       <div class="about-text">
         <div class="section-eyebrow" style="margin-bottom:16px;"><span style="color:var(--gold);">Tu Aliado</span></div>
         <h2 class="section-title reveal">Conoce a<br/>Elvin Ruiz Santoni</h2>
-        <p class="reveal">Soy un asesor financiero independiente especializado en seguros de vida IUL, con más de 15 años ayudando a familias puertorriqueñas a construir un futuro financiero sólido.</p>
+        <p class="reveal">Soy un asesor financiero independiente especializado en seguros de vida IUL, con más de 10 años ayudando a familias puertorriqueñas a construir un futuro financiero sólido.</p>
         <p class="reveal">Mi filosofía es simple: <strong style="color:var(--gold-light);">tu aliado</strong>, no un vendedor. Analizo tu situación particular, te educo sobre tus opciones y juntos diseñamos una estrategia que realmente funcione para ti y los tuyos.</p>
         <p class="reveal">Como agente independiente, trabajo con múltiples aseguradoras líderes, lo que me permite ofrecerte siempre el mejor producto al mejor precio — sin compromisos con ninguna compañía.</p>
         <div class="about-pillars reveal">
@@ -147,7 +147,7 @@ session_start();
           <div class="pillar">
             <div class="pillar-icon">🏆</div>
             <div class="pillar-title">Resultados probados</div>
-            <div class="pillar-desc">Más de 500 familias protegidas y satisfechas.</div>
+            <div class="pillar-desc">Más de 250 familias protegidas y satisfechas.</div>
           </div>
         </div>
       </div>
@@ -163,9 +163,65 @@ session_start();
 
     <div class="testimonios-slider">
       <div class="testimonios-track" id="track">
-        <!-- tarjetas de testimonios (igual que tu HTML original) -->
+        <div class="testimonio-card">
+          <p class="testimonio-text">Elvin me explicó el IUL de una manera que nunca nadie me había explicado. Ahora tengo protección para mi familia y un plan de retiro sólido. ¡Totalmente recomendado!</p>
+          <div class="testimonio-autor">
+            <div class="autor-avatar">CR</div>
+            <div>
+              <div class="autor-name">Carlos R.</div>
+              <div class="autor-loc">San Juan, Puerto Rico</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonio-card">
+          <p class="testimonio-text">Lo que más valoro de Elvin es su honestidad. No trata de vender, trata de educar. Gracias a él entendí cómo proteger a mis hijos y ahorrar para el futuro al mismo tiempo.</p>
+          <div class="testimonio-autor">
+            <div class="autor-avatar">MG</div>
+            <div>
+              <div class="autor-name">María G.</div>
+              <div class="autor-loc">Bayamón, Puerto Rico</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonio-card">
+          <p class="testimonio-text">Tenía miedo de los seguros porque no los entendía. Elvin me dedicó tiempo, me explicó paso a paso y hoy tengo tranquilidad financiera que antes no tenía. ¡Un profesional excelente!</p>
+          <div class="testimonio-autor">
+            <div class="autor-avatar">JM</div>
+            <div>
+              <div class="autor-name">José M.</div>
+              <div class="autor-loc">Caguas, Puerto Rico</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonio-card">
+          <p class="testimonio-text">Elvin es más que un agente, es un aliado de verdad. Siempre disponible, siempre honesto.  
+          Le recomendé a toda mi familia y todos quedaron felices con su servicio.</p>
+          <div class="testimonio-autor">
+            <div class="autor-avatar">AL</div>
+            <div>
+              <div class="autor-name">Ana L.</div>
+              <div class="autor-loc">Ponce, Puerto Rico</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonio-card">
+          <p class="testimonio-text">Llevaba años pensando en contratar un seguro de vida pero nunca lo hacía. Elvin me hizo entender que cada día que espero es dinero que pierdo. ¡Ojalá lo hubiera contactado antes!</p>
+          <div class="testimonio-autor">
+            <div class="autor-avatar">RP</div>
+            <div>
+              <div class="autor-name">Roberto P.</div>
+              <div class="autor-loc">Mayagüez, Puerto Rico</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
     <div class="slider-controls">
       <button class="slider-btn" onclick="slide(-1)">&#8592;</button>
       <div class="slider-dots" id="dots"></div>
@@ -195,7 +251,15 @@ session_start();
         </div>
 
         <div class="social-links reveal">
-          <!-- tus iconos sociales -->
+          <a href="https://web.facebook.com/ruizsantoniseguros" target="_blank" class="social-link" title="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/topfinancialgrouppr/" target="_blank" class="social-link" title="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://wa.me/17877851818" target="_blank" class="social-link" title="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
         </div>
       </div>
 
@@ -259,7 +323,7 @@ session_start();
 
 <footer>
   <div class="footer-logo">
-    <img src="" alt="">
+    <img src="assets/logo.png" alt="Elvin Ruiz Santoni Logo">
   </div>
   <div class="footer-copy">
     © <span id="year"></span> <span>Elvin Ruiz Santoni</span> — Tu Aliado de Seguros. Todos los derechos reservados.
@@ -271,15 +335,70 @@ session_start();
     <a href="#contacto">Contacto</a>
   </div>
 </footer>
-
-<a href="https://wa.me/17877851818" target="_blank" class="wa-float" title="WhatsApp">
-  <!-- icono WA -->
-</a>
-
-<script type="module" src="app.js"></script>
 <script>
-  // Set current year in footer
-  document.getElementById('year').textContent = new Date().getFullYear();
+  // --- Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+// --- Slider
+const track = document.getElementById('track');
+const cards = track.querySelectorAll('.testimonio-card');
+let current = 0;
+let perView = window.innerWidth < 700 ? 1 : window.innerWidth < 1000 ? 2 : 3;
+const total = Math.ceil(cards.length / perView);
+function buildDots() {
+  const dotsEl = document.getElementById('dots');
+  dotsEl.innerHTML = '';
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === current ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+}
+function goTo(n) {
+  current = Math.max(0, Math.min(n, total - 1));
+  const cardW = cards[0].offsetWidth + 24;
+  track.style.transform = 'translateX(-' + (current * perView * cardW) + 'px)';
+  buildDots();
+}
+function slide(dir) { goTo(current + dir); }
+window.addEventListener('resize', () => {
+  perView = window.innerWidth < 700 ? 1 : window.innerWidth < 1000 ? 2 : 3;
+  goTo(0);
+});
+buildDots();
+// Auto-slide
+setInterval(() => slide(1), 5000);
+// --- Form submit
+function submitForm() {
+  const name = document.getElementById('fname').value;
+  const phone = document.getElementById('phone').value;
+  if (!name || !phone) {
+    alert('Por favor ingresa al menos tu nombre y teléfono.');
+    return;
+  }
+  document.getElementById('formContent').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+// --- Mobile menu
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  links.classList.toggle('mobile-open');
+}
+
+// Close menu on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('mobile-open');
+  });
+});
 </script>
 </body>
 </html>
