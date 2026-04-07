@@ -1,6 +1,13 @@
 <?php
 // index.php
 session_start();
+$mostrar_modal = false;
+if (isset($_SESSION['status_ok']) && $_SESSION['status_ok'] === true) {
+    $mostrar_modal = true;
+    $modal_nombre = $_SESSION['modal_nombre'] ?? '';
+    unset($_SESSION['status_ok']);
+    unset($_SESSION['modal_nombre']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,11 +17,200 @@ session_start();
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Elvin Ruiz Santoni — Tu Aliado de Seguros</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/x-icon" href="/assets/logo.png">
 <link rel="stylesheet" href="style.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+/* ===================== MODAL ÉXITO ===================== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.modal-overlay.active {
+  display: flex;
+}
+.modal-box {
+  background: #1B2A4A;
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 20px;
+  padding: 52px 44px 44px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  animation: modalIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.85) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-icon-wrap {
+  width: 80px;
+  height: 80px;
+  background: rgba(212,175,55,0.1);
+  border: 2px solid rgba(212,175,55,0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px;
+  animation: iconPulse 2s ease-in-out infinite;
+}
+@keyframes iconPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(212,175,55,0.25); }
+  50%      { box-shadow: 0 0 0 14px rgba(212,175,55,0); }
+}
+.modal-icon-wrap i {
+  font-size: 36px;
+  color: #d4af37;
+}
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.modal-title em {
+  color: #d4af37;
+  font-style: normal;
+}
+.modal-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.modal-divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 20px auto 24px;
+}
+.modal-detail {
+  background: rgba(212,175,55,0.06);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  text-align: left;
+}
+.modal-detail i {
+  color: #d4af37;
+  font-size: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.modal-detail-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+}
+.modal-detail-text strong {
+  color: rgba(255,255,255,0.9);
+  display: block;
+  margin-bottom: 2px;
+}
+.modal-detail-text a {
+  color: #d4af37;
+  text-decoration: none;
+}
+.modal-close-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #d4af37, #b8962e);
+  color: #111;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.modal-close-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.modal-close-x {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.3);
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+  padding: 4px;
+}
+.modal-close-x:hover {
+  color: rgba(255,255,255,0.7);
+}
+@media (max-width: 520px) {
+  .modal-box { padding: 44px 24px 32px; }
+  .modal-title { font-size: 1.45rem; }
+}
+</style>
 </head>
 <body>
+
+<?php if ($mostrar_modal): ?>
+<div class="modal-overlay active" id="successModal">
+  <div class="modal-box">
+    <button class="modal-close-x" onclick="cerrarModal()" aria-label="Cerrar">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="modal-icon-wrap">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <div class="modal-title">¡Mensaje enviado<br/>con <em>éxito</em>!</div>
+    <?php if (!empty($modal_nombre)): ?>
+    <div class="modal-subtitle">Gracias, <strong style="color:rgba(255,255,255,0.9);"><?php echo htmlspecialchars($modal_nombre); ?></strong>.</div>
+    <?php endif; ?>
+    <div class="modal-subtitle">Tu solicitud fue recibida correctamente.</div>
+    <div class="modal-divider"></div>
+    <div class="modal-detail">
+      <i class="fa-solid fa-clock"></i>
+      <div class="modal-detail-text">
+        <strong>Respuesta en menos de 24 horas</strong>
+        Elvin revisará tu información y se comunicará contigo pronto por teléfono o correo electrónico.
+      </div>
+    </div>
+    <div class="modal-detail">
+      <i class="fa-brands fa-whatsapp"></i>
+      <div class="modal-detail-text">
+        <strong>¿Necesitas respuesta inmediata?</strong>
+        Escríbele directamente por WhatsApp al <a href="https://wa.me/17877851818" target="_blank">+1 (787) 785-1818</a>
+      </div>
+    </div>
+    <button class="modal-close-btn" onclick="cerrarModal()">
+      <i class="fa-solid fa-house"></i> Volver al inicio
+    </button>
+  </div>
+</div>
+<?php endif; ?>
+
 <nav id="navbar">
   <div class="nav-logo">
     <img src="assets/logo.png" alt="Elvin Ruiz Santoni Logo">
@@ -129,7 +325,7 @@ session_start();
       <div class="about-text">
         <div class="section-eyebrow" style="margin-bottom:16px;"><span style="color:var(--gold);">Tu Aliado</span></div>
         <h2 class="section-title reveal">Conoce a<br/>Elvin Ruiz Santoni</h2>
-        <p class="reveal">Soy un asesor financiero independiente especializado en seguros de vida IUL, 
+        <p class="reveal">Soy un asesor financiero independiente especializado en seguros de vida IUL,
           con más de 25 años ayudando a familias puertorriqueñas a construir un futuro financiero sólido.</p>
         <p class="reveal">Mi filosofía es simple: <strong style="color:var(--gold-light);">tu aliado</strong>, no un vendedor. Analizo tu situación particular, te educo sobre tus opciones y juntos diseñamos una estrategia que realmente funcione para ti y los tuyos.</p>
         <p class="reveal">Como agente independiente, trabajo con múltiples aseguradoras líderes, lo que me permite ofrecerte siempre el mejor producto al mejor precio sin compromisos con ninguna compañía.</p>
@@ -165,14 +361,12 @@ session_start();
   <div class="aseg-label section-eyebrow" style="color: var(--blue); justify-content: center;"><span style="color: var(--gold);">Acceso a las mejores aseguradoras del mercado</span></div>
   <div class="aseg-track-wrap">
     <div class="aseg-track" id="asegTrack">
-      <!-- Logos originales -->
       <div class="aseg-item"><img src="assets/finfitlogo.png" alt="FinFit"></div>
       <div class="aseg-item"><img src="assets/JohnHancocklogo.svg" alt="John Hancock"></div>
       <div class="aseg-item"><img src="assets/FGlogo.svg" alt="FG"></div>
       <div class="aseg-item"><img src="assets/linconllogo.svg" alt="Lincoln"></div>
       <div class="aseg-item"><img src="assets/triples.png" alt="Triples Logo"></div>
       <div class="aseg-item"><img src="assets/universallogo.png" alt="Universal Logo"></div>
-      <!-- Duplicados para loop infinito -->
       <div class="aseg-item"><img src="assets/finfitlogo.png" alt="FinFit"></div>
       <div class="aseg-item"><img src="assets/JohnHancocklogo.svg" alt="John Hancock"></div>
       <div class="aseg-item"><img src="assets/FGlogo.svg" alt="FG"></div>
@@ -265,33 +459,19 @@ session_start();
             </div>
           </div>
         </div>
-        <div class="testimonio-card">
-          <p class="testimonio-text">Elvin es más que un agente, es un aliado de verdad. Siempre disponible, siempre honesto.  
-          Le recomendé a toda mi familia y todos quedaron felices con su servicio.</p>
-          <div class="testimonio-autor">
-            <div class="autor-avatar">AL</div>
-            <div>
-              <div class="autor-name">Ana L.</div>
-              <div class="autor-loc">Ponce, Puerto Rico</div>
-              <div class="stars">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonio-card">
-          <p class="testimonio-text">Llevaba años pensando en contratar un seguro de vida pero nunca lo hacía. Elvin me hizo entender que cada día que espero es dinero que pierdo. ¡Ojalá lo hubiera contactado antes!</p>
-          <div class="testimonio-autor">
-            <div class="autor-avatar">RP</div>
-            <div>
-              <div class="autor-name">Roberto P.</div>
-              <div class="autor-loc">Mayagüez, Puerto Rico</div>
-              <div class="stars">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!--<div class="testimonio-card">-->
+        <!--  <p class="testimonio-text">Llevaba años pensando en contratar un seguro de vida pero nunca lo hacía. Elvin me hizo entender que cada día que espero es dinero que pierdo. ¡Ojalá lo hubiera contactado antes!</p>-->
+        <!--  <div class="testimonio-autor">-->
+        <!--    <div class="autor-avatar">RP</div>-->
+        <!--    <div>-->
+        <!--      <div class="autor-name">Roberto P.</div>-->
+        <!--      <div class="autor-loc">Mayagüez, Puerto Rico</div>-->
+        <!--      <div class="stars">-->
+        <!--        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>-->
+        <!--      </div>-->
+        <!--    </div>-->
+        <!--  </div>-->
+        <!--</div>-->
       </div>
     </div>
 
@@ -311,7 +491,7 @@ session_start();
         <div class="section-eyebrow" style="margin-bottom:16px;"><span style="color:var(--gold);">Contacto</span></div>
         <h2 class="section-title reveal" style="color:white;">¿Listo para proteger<br/>a tu familia?</h2>
         <p class="reveal">La consulta inicial es completamente gratuita y sin compromisos. Conversamos, analizo tu situación y te presento opciones reales adaptadas a ti.</p>
- 
+
         <div class="contact-items">
           <a href="https://wa.me/17877851818" target="_blank" class="contact-item reveal">
             <div class="ci-icon"><i class="fa-solid fa-mobile-screen"></i></div>
@@ -322,7 +502,7 @@ session_start();
             <div class="ci-text">elvin@ruizsantoni.com</div>
           </a>
         </div>
- 
+
         <div class="social-links reveal">
           <a href="https://web.facebook.com/ruizsantoniseguros" target="_blank" class="social-link" title="Facebook">
             <i class="fa-brands fa-facebook-f"></i>
@@ -335,14 +515,13 @@ session_start();
           </a>
         </div>
       </div>
- 
+
       <!-- FORMULARIO FUNCIONAL -->
       <div class="contact-form-wrap reveal">
         <div id="formContent">
           <div class="form-title">Solicita tu consulta gratuita</div>
           <div class="form-subtitle">Sin costo · Sin compromiso · Respuesta en 24 horas</div>
- 
-          <!-- Formulario apunta a send.php -->
+
           <form method="POST" action="send.php">
             <div class="form-row">
               <div class="form-group">
@@ -394,13 +573,6 @@ session_start();
               <i class="fa-regular fa-calendar"></i> Solicitar mi consulta gratis
             </button>
           </form>
- 
-          <?php
-          if(isset($_SESSION['status'])) {
-              echo '<div class="form-success reveal">' . $_SESSION['status'] . '</div>';
-              unset($_SESSION['status']);
-          }
-          ?>
         </div>
       </div>
     </div>
@@ -423,7 +595,7 @@ session_start();
 </footer>
 
 <script>
-  // --- Scroll reveal
+// --- Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -462,35 +634,20 @@ window.addEventListener('resize', () => {
   goTo(0);
 });
 buildDots();
-
-// Auto-slide
 setInterval(() => slide(1), 5000);
-
-// --- Form submit
-function submitForm() {
-  const name = document.getElementById('fname').value;
-  const phone = document.getElementById('phone').value;
-  if (!name || !phone) {
-    alert('Por favor ingresa al menos tu nombre y teléfono.');
-    return;
-  }
-  document.getElementById('formContent').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-}
 
 // --- Mobile menu
 function toggleMenu() {
   const links = document.querySelector('.nav-links');
   links.classList.toggle('mobile-open');
 }
-
-// Close menu on link click
 document.querySelectorAll('.nav-links a').forEach(a => {
   a.addEventListener('click', () => {
     document.querySelector('.nav-links').classList.remove('mobile-open');
   });
 });
 
+// --- Edad
 function calcularEdad(fechaNac) {
   if (!fechaNac) return;
   const hoy = new Date();
@@ -503,6 +660,23 @@ function calcularEdad(fechaNac) {
   }
   document.getElementById('edad').value = edad;
 }
+
+// --- Modal
+function cerrarModal() {
+  const modal = document.getElementById('successModal');
+  if (modal) {
+    modal.style.transition = 'opacity 0.25s ease';
+    modal.style.opacity = '0';
+    setTimeout(() => modal.remove(), 260);
+  }
+}
+document.addEventListener('click', function(e) {
+  const modal = document.getElementById('successModal');
+  if (modal && e.target === modal) cerrarModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') cerrarModal();
+});
 
 // --- Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
