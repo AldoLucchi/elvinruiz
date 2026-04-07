@@ -932,3 +932,222 @@ i {
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 768px) {
+  .testimonio-text {
+    max-width: 20%;
+  }
+}
+
+/* ===================== VIDA SECTION ===================== */
+#vida {
+  background: var(--navy);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#vida::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(ellipse, rgba(212,175,55,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.vida-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 60px 0 50px;
+}
+
+.vida-card {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(212, 175, 55, 0.04));
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 16px;
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vida-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.vida-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212,175,55,0.4);
+  box-shadow: 0 20px 60px rgba(212,175,55,0.08);
+}
+
+.vida-card:hover::before {
+  opacity: 1;
+}
+
+.vida-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(212,175,55,0.1) !important;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.vida-icon i {
+  font-size: 22px !important;
+  color: #d4af37 !important;
+}
+
+.vida-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #ffffff !important;
+  margin-bottom: 14px;
+}
+
+.vida-card p {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.65) !important;
+  line-height: 1.7;
+}
+
+.vida-card p strong {
+  color: rgba(255,255,255,0.9) !important;
+  font-weight: 700;
+}
+
+/* CTA banner */
+.vida-cta {
+  background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.04));
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 16px;
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.vida-cta-text {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.vida-cta-text i {
+  font-size: 28px !important;
+  color: #d4af37 !important;
+  flex-shrink: 0;
+}
+
+.vida-cta-text span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .vida-grid {
+    grid-template-columns: 1fr;
+  }
+  .vida-cta {
+    flex-direction: column;
+    text-align: center;
+    padding: 28px 24px;
+  }
+  .vida-cta-text {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ===================== ASEGURADORAS CAROUSEL ===================== */
+#aseguradoras {
+  background: #ffffff;
+  padding: 48px 0;
+  overflow: hidden;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.aseg-label {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 32px;
+}
+
+.aseg-track-wrap {
+  overflow: hidden;
+  position: relative;
+  /* fade edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.aseg-track {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  width: max-content;
+  animation: asegScroll 28s linear infinite;
+}
+
+.aseg-track:hover {
+  animation-play-state: paused;
+}
+
+.aseg-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+
+.aseg-item img {
+  height: 48px !important;
+  width: auto !important;
+  max-width: 160px !important;
+  object-fit: contain;
+  filter: grayscale(100%) !important;
+  opacity: 0.55;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.aseg-item img:hover {
+  filter: grayscale(0%) !important;
+  opacity: 1;
+}
+
+@keyframes asegScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.section-inner {
+    padding: 1rem;
+}

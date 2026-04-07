@@ -38,7 +38,7 @@ session_start();
     <div class="hero-text">
       <div class="hero-badge"><span>Seguro de Vida Universal Indexado</span></div>
       <h1>Protege tu familia.<br/>Construye tu <em>legado</em>.</h1>
-      <p>Soy Elvin Ruiz Santoni, asesor independiente de seguros IUL. Te ayudo a asegurar el futuro financiero de tu familia con estrategias personalizadas, sin riesgos en el mercado.</p>
+      <p>Soy Elvin Ruiz Santoni, asesor independiente de seguros. Te ayudo a asegurar el futuro financiero de tu familia con estrategias personalizadas, sin riesgos en el mercado.</p>
       <div class="hero-actions">
         <a href="#contacto" class="btn-primary">
           <i class="fa-regular fa-calendar"></i> Agenda tu consulta gratis
@@ -47,7 +47,7 @@ session_start();
       </div>
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-num">10+</div>
+          <div class="stat-num">25+</div>
           <div class="stat-label">Años de experiencia</div>
         </div>
         <div class="stat-item">
@@ -75,11 +75,12 @@ session_start();
   </div>
 </section>
 
+<!-- IUL -->
 <section id="iul">
   <div class="section-inner">
     <div class="section-eyebrow"><span>El Producto</span></div>
     <h2 class="section-title reveal">¿Qué es el Seguro de<br/>Vida Universal Indexado?</h2>
-    <p class="section-sub reveal">El IUL (Indexed Universal Life) es mucho más que un seguro de vida. Es una herramienta financiera que protege a tu familia <em>y</em> hace crecer tu dinero, vinculado al mercado pero sin exponerlo a sus pérdidas.</p>
+    <p class="section-sub reveal">El IUL (Indexed Universal Life) es mucho más que un seguro de vida. Es una herramienta financiera que protege a tu familia y hace crecer tu dinero, vinculado al mercado pero sin exponerlo a sus pérdidas.</p>
 
     <div class="iul-grid">
       <div class="iul-card reveal">
@@ -128,9 +129,10 @@ session_start();
       <div class="about-text">
         <div class="section-eyebrow" style="margin-bottom:16px;"><span style="color:var(--gold);">Tu Aliado</span></div>
         <h2 class="section-title reveal">Conoce a<br/>Elvin Ruiz Santoni</h2>
-        <p class="reveal">Soy un asesor financiero independiente especializado en seguros de vida IUL, con más de 10 años ayudando a familias puertorriqueñas a construir un futuro financiero sólido.</p>
+        <p class="reveal">Soy un asesor financiero independiente especializado en seguros de vida IUL, 
+          con más de 25 años ayudando a familias puertorriqueñas a construir un futuro financiero sólido.</p>
         <p class="reveal">Mi filosofía es simple: <strong style="color:var(--gold-light);">tu aliado</strong>, no un vendedor. Analizo tu situación particular, te educo sobre tus opciones y juntos diseñamos una estrategia que realmente funcione para ti y los tuyos.</p>
-        <p class="reveal">Como agente independiente, trabajo con múltiples aseguradoras líderes, lo que me permite ofrecerte siempre el mejor producto al mejor precio — sin compromisos con ninguna compañía.</p>
+        <p class="reveal">Como agente independiente, trabajo con múltiples aseguradoras líderes, lo que me permite ofrecerte siempre el mejor producto al mejor precio sin compromisos con ninguna compañía.</p>
         <div class="about-pillars reveal">
           <div class="pillar">
             <div class="pillar-icon"><i class="fa-solid fa-lightbulb"></i></div>
@@ -154,6 +156,64 @@ session_start();
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAROUSEL ASEGURADORAS -->
+<section id="aseguradoras">
+  <div class="aseg-label section-eyebrow" style="color: var(--blue); justify-content: center;"><span style="color: var(--gold);">Acceso a las mejores aseguradoras del mercado</span></div>
+  <div class="aseg-track-wrap">
+    <div class="aseg-track" id="asegTrack">
+      <!-- Logos originales -->
+      <div class="aseg-item"><img src="assets/finfitlogo.png" alt="FinFit"></div>
+      <div class="aseg-item"><img src="assets/JohnHancocklogo.svg" alt="John Hancock"></div>
+      <div class="aseg-item"><img src="assets/FGlogo.svg" alt="FG"></div>
+      <div class="aseg-item"><img src="assets/linconllogo.svg" alt="Lincoln"></div>
+      <div class="aseg-item"><img src="assets/triples.png" alt="Triples Logo"></div>
+      <div class="aseg-item"><img src="assets/universallogo.png" alt="Universal Logo"></div>
+      <!-- Duplicados para loop infinito -->
+      <div class="aseg-item"><img src="assets/finfitlogo.png" alt="FinFit"></div>
+      <div class="aseg-item"><img src="assets/JohnHancocklogo.svg" alt="John Hancock"></div>
+      <div class="aseg-item"><img src="assets/FGlogo.svg" alt="FG"></div>
+      <div class="aseg-item"><img src="assets/linconllogo.svg" alt="Lincoln"></div>
+      <div class="aseg-item"><img src="assets/triples.png" alt="Triples Logo"></div>
+      <div class="aseg-item"><img src="assets/universallogo.png" alt="Universal Logo"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS EN VIDA -->
+<section id="vida">
+  <div class="section-inner">
+    <div class="section-eyebrow"><span>Beneficios en Vida</span></div>
+    <h2 class="section-title reveal" style="color:white">Tu seguro trabaja para ti<br/>hoy, no solo cuando fallezcas.</h2>
+    <p class="section-sub reveal" style="color: white;">Con tu póliza IUL puedes acceder a tu dinero en vida si lo necesitas. Tu familia no tiene que esperar.</p>
+
+    <div class="vida-grid">
+      <div class="vida-card reveal">
+        <div class="vida-icon"><i class="fa-solid fa-ribbon"></i></div>
+        <h3>Diagnóstico crítico</h3>
+        <p>Si te diagnostican <strong>cáncer, infarto o derrame cerebral</strong>, puedes acceder a tu beneficio para cubrir tratamientos y gastos médicos de inmediato.</p>
+      </div>
+      <div class="vida-card reveal">
+        <div class="vida-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <h3>Cuidado personal</h3>
+        <p>Si necesitas ayuda para realizar <strong>actividades diarias básicas</strong>, tu póliza puede cubrir cuidado en el hogar o en un centro especializado.</p>
+      </div>
+      <div class="vida-card reveal">
+        <div class="vida-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <h3>Expectativa de vida limitada</h3>
+        <p>Ante un diagnóstico terminal, puedes usar tu beneficio para <strong>proteger a tu familia</strong> y poner tus asuntos en orden con dignidad y tranquilidad.</p>
+      </div>
+    </div>
+
+    <div class="vida-cta reveal">
+      <div class="vida-cta-text">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span>No esperes a morir para que tu seguro te proteja.</span>
+      </div>
+      <a href="#contacto" class="btn-primary">Quiero saber más <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
@@ -251,7 +311,7 @@ session_start();
         <div class="section-eyebrow" style="margin-bottom:16px;"><span style="color:var(--gold);">Contacto</span></div>
         <h2 class="section-title reveal" style="color:white;">¿Listo para proteger<br/>a tu familia?</h2>
         <p class="reveal">La consulta inicial es completamente gratuita y sin compromisos. Conversamos, analizo tu situación y te presento opciones reales adaptadas a ti.</p>
-
+ 
         <div class="contact-items">
           <a href="https://wa.me/17877851818" target="_blank" class="contact-item reveal">
             <div class="ci-icon"><i class="fa-solid fa-mobile-screen"></i></div>
@@ -262,7 +322,7 @@ session_start();
             <div class="ci-text">elvin@ruizsantoni.com</div>
           </a>
         </div>
-
+ 
         <div class="social-links reveal">
           <a href="https://web.facebook.com/ruizsantoniseguros" target="_blank" class="social-link" title="Facebook">
             <i class="fa-brands fa-facebook-f"></i>
@@ -275,13 +335,13 @@ session_start();
           </a>
         </div>
       </div>
-
+ 
       <!-- FORMULARIO FUNCIONAL -->
       <div class="contact-form-wrap reveal">
         <div id="formContent">
           <div class="form-title">Solicita tu consulta gratuita</div>
           <div class="form-subtitle">Sin costo · Sin compromiso · Respuesta en 24 horas</div>
-
+ 
           <!-- Formulario apunta a send.php -->
           <form method="POST" action="send.php">
             <div class="form-row">
@@ -292,6 +352,19 @@ session_start();
               <div class="form-group">
                 <label>Apellido</label>
                 <input type="text" id="lname" name="lname" placeholder="Tu apellido" required/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Fecha de Nacimiento</label>
+                <input type="date" id="birthdate" name="birthdate" required
+                  min="1924-01-01"
+                  max="<?php echo date('Y-m-d', strtotime('-1 years')); ?>"
+                  onchange="calcularEdad(this.value)"/>
+              </div>
+              <div class="form-group">
+                <label>Edad</label>
+                <input type="number" id="edad" name="edad" placeholder="Tu edad" min="1" max="100" required readonly style="background:rgba(255,255,255,0.04);cursor:default;"/>
               </div>
             </div>
             <div class="form-group">
@@ -321,7 +394,7 @@ session_start();
               <i class="fa-regular fa-calendar"></i> Solicitar mi consulta gratis
             </button>
           </form>
-
+ 
           <?php
           if(isset($_SESSION['status'])) {
               echo '<div class="form-success reveal">' . $_SESSION['status'] . '</div>';
@@ -348,6 +421,7 @@ session_start();
     <a href="#contacto">Contacto</a>
   </div>
 </footer>
+
 <script>
   // --- Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
@@ -359,6 +433,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 reveals.forEach(el => observer.observe(el));
+
 // --- Slider
 const track = document.getElementById('track');
 const cards = track.querySelectorAll('.testimonio-card');
@@ -387,8 +462,10 @@ window.addEventListener('resize', () => {
   goTo(0);
 });
 buildDots();
+
 // Auto-slide
 setInterval(() => slide(1), 5000);
+
 // --- Form submit
 function submitForm() {
   const name = document.getElementById('fname').value;
@@ -400,6 +477,7 @@ function submitForm() {
   document.getElementById('formContent').style.display = 'none';
   document.getElementById('formSuccess').style.display = 'block';
 }
+
 // --- Mobile menu
 function toggleMenu() {
   const links = document.querySelector('.nav-links');
@@ -412,6 +490,22 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     document.querySelector('.nav-links').classList.remove('mobile-open');
   });
 });
+
+function calcularEdad(fechaNac) {
+  if (!fechaNac) return;
+  const hoy = new Date();
+  const nac = new Date(fechaNac);
+  let edad = hoy.getFullYear() - nac.getFullYear();
+  const mesActual = hoy.getMonth();
+  const mesNac = nac.getMonth();
+  if (mesActual < mesNac || (mesActual === mesNac && hoy.getDate() < nac.getDate())) {
+    edad--;
+  }
+  document.getElementById('edad').value = edad;
+}
+
+// --- Footer year
+document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
